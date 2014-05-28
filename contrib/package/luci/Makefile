@@ -457,6 +457,9 @@ $(eval $(call application,transmission,LuCI Support for Transmission,\
 $(eval $(call application,watchcat,LuCI Support for Watchcat,\
 	+PACKAGE_luci-app-watchcat:watchcat))
 
+$(eval $(call application,mentohust,mentohust configuration module,\
+	 +PACKAGE_luci-app-mentohust:mentohust))
+
 ### Server Gateway Interfaces ###
 define sgi
   define Package/luci-sgi-$(1)
