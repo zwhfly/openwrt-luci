@@ -321,6 +321,7 @@ end
 ------------------- Broadcom Device ------------------
 
 if hwtype == "broadcom" then
+--[[
 	tp = s:taboption("general",
 		(#tx_power_list > 0) and ListValue or Value,
 		"txpower", translate("Transmit Power"), "dBm")
@@ -364,6 +365,46 @@ if hwtype == "broadcom" then
 
 	s:taboption("advanced", Value, "country", translate("Country Code"))
 	s:taboption("advanced", Value, "maxassoc", translate("Connection Limit"))
+]]--
+	if #tx_power_list > 1 then
+		tp = s:taboption("general", ListValue,
+			"txpower", translate("Transmit Power"), "dBm")
+		tp.rmempty = true
+		tp.default = tx_power_cur
+		function tp.cfgvalue(...)
+			return txpower_current(Value.cfgvalue(...), tx_power_list)
+		end
+
+		for _, p in ipairs(tx_power_list) do
+			tp:value(p.driver_dbm, "%i dBm (%i mW)"
+				%{ p.display_dbm, p.display_mw })
+		end
+	end
+
+	mode = s:taboption("advanced", ListValue, "hwmode", translate("Band"))
+
+	if hw_modes.n then
+		if hw_modes.g then mode:value("11ng", "2.4GHz (802.11g+n)") end
+		if hw_modes.a then mode:value("11na", "5GHz (802.11a+n)") end
+
+		htmode = s:taboption("advanced", ListValue, "htmode", translate("HT mode (802.11n)"))
+		htmode:value("", translate("auto"))
+		htmode:value("HT20", "20MHz")
+		htmode:value("HT40", "40MHz")
+	end
+	if hw_modes.g then mode:value("11g", "2.4GHz (802.11g)") end
+	if hw_modes.a then mode:value("11a", "5GHz (802.11a)") end
+
+	local cl = iw and iw.countrylist
+	if cl and #cl > 0 then
+		cc = s:taboption("advanced", ListValue, "country", translate("Country Code"), translate("Use ISO/IEC 3166 alpha2 country codes."))
+		cc.default = tostring(iw and iw.country or "00")
+		for _, c in ipairs(cl) do
+			cc:value(c.alpha2, "%s - %s" %{ c.alpha2, c.name })
+		end
+	else
+		s:taboption("advanced", Value, "country", translate("Country Code"), translate("Use ISO/IEC 3166 alpha2 country codes."))
+	end
 end
 
 
