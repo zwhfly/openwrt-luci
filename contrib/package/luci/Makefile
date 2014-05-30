@@ -460,6 +460,9 @@ $(eval $(call application,watchcat,LuCI Support for Watchcat,\
 $(eval $(call application,mentohust,mentohust configuration module,\
 	 +PACKAGE_luci-app-mentohust:mentohust))
 
+$(eval $(call application,goagent,goagent configuration module,\
+	 +PACKAGE_luci-app-goagent:screen))
+
 ### Server Gateway Interfaces ###
 define sgi
   define Package/luci-sgi-$(1)

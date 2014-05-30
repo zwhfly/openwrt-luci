@@ -1,0 +1,41 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+msgid "config"
+msgstr "配置"
+
+msgid "no running goagent found"
+msgstr "没有找到运行中的goagent"
+
+msgid "Edit <em>proxy.ini</em> of goagent here."
+msgstr "在这里编辑goagent的 <em>proxy.ini</em> 文件。"
+
+msgid "This is the output of goagent. This screen refreshes itself every 5 seconds. You can disable the refreshing by clicking the <em>Auto Refresh on</em> button."
+msgstr "这是goagent程序的输出内容。此屏幕每5秒钟自动刷新一次。你可以点击 <em>自动刷新 开</em> 按钮关闭自动刷新。"
+
+msgid "You can also monitor the screen in a terminal using command <em>screen -x goagent</em>. Then press <em>Ctrl+a</em>, <em>Ctrl+d</em> to exit."
+msgstr "您还可以在终端中查看此屏幕，使用命令 <em>screen -x goagent</em> 。然后按 <em>Ctrl+a</em> , <em>Ctrl+d</em> 退出。"
+
+msgid "Please fill your user name in the <em>proxy.ini</em> file on <em>config</em> page, then press <em>Enable</em> button to start goagent."
+msgstr "请在 <em>配置</em> 页面上将您的用户名填入 <em>proxy.ini</em> 文件中，然后按 <em>启用</em> 按钮启动goagent。"
+
+msgid "<a href='https://code.google.com/p/goagent/'>Go to goagent homepage</a> for further information."
+msgstr "<a href='https://code.google.com/p/goagent/'>点击进入goagent主页</a> 获取更多信息。"
+
+msgid "goagent running status"
+msgstr "goagent运行状态"
+
+msgid "config page"
+msgstr "配置页面"
+
+msgid "The starting could take a minute, so wait patiently."
+msgstr "启动可能会花一点时间，所以请耐心等待。"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Disable"
+msgstr "禁用"
+
+msgid "Generally ip=0.0.0.0 and appid=<em>your gae appid</em>."
+msgstr "一般地，ip=0.0.0.0，appid=<em>你的gae的appid</em>。"

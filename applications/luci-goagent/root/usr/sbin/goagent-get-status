@@ -1,0 +1,10 @@
+#!/bin/sh
+mkdir -p /tmp/goagent
+rm /tmp/goagent/screen > /dev/null 2> /dev/null
+screen -x goagent -X hardcopy -h /tmp/goagent/screen > /dev/null 2> /dev/null
+if [ $? = 0 ]; then
+        cat /tmp/goagent/screen
+else
+        echo "no running goagent found"
+fi
+rm /tmp/goagent/screen > /dev/null 2> /dev/null
