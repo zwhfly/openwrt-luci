@@ -1,0 +1,21 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006-2011 OpenWrt.org
+
+START=50
+
+stop() {
+	echo a > /dev/null 2> /dev/null
+	while [ $? = 0 ]; do
+		screen -x -RR goagent -X quit > /dev/null 2> /dev/null
+	done 
+}
+
+start() {
+	screen -x goagent -X version > /dev/null 2> /dev/null
+	if [ $? = 0 ]; then
+		return 0
+	else
+		stop
+		screen -dmS goagent python /usr/lib/goagent/local/proxy.py
+	fi
+}
