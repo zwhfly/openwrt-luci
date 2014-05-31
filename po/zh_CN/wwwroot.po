@@ -1,0 +1,8 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+msgid "www server root directory"
+msgstr "www服务器根目录"
+
+msgid "<p>error occurred while reading directory '/www'</p>"
+msgstr "<p>读取'/www'目录时发生错误</p>"
