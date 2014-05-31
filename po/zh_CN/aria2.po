@@ -7,6 +7,9 @@ msgstr "Aria2是一个支持多协议多线程的下载器,你可以在这里对
 msgid "Open Web Interface"
 msgstr "打开Web界面"
 
+msgid "Select an Aria2 Management Page"
+msgstr "选择一个 Aria2 管理页面"
+
 msgid "Global settings"
 msgstr "全局设置"
 

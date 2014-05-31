@@ -464,7 +464,8 @@ $(eval $(call application,goagent,goagent configuration module,\
 	 +PACKAGE_luci-app-goagent:screen))
 
 $(eval $(call application,aria2,LuCI Support for Aria2,\
-	+PACKAGE_luci-app-aria2:aria2))
+	+PACKAGE_luci-app-aria2:aria2 \
+	+PACKAGE_luci-app-aria2:luci-app-wwwroot))
 
 $(eval $(call application,wwwroot,LuCI www root directory page))
 
