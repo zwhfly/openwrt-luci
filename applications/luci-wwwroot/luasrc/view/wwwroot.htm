@@ -1,0 +1,20 @@
+<%+header%>
+<h2><%:www server root directory%></h2>
+<h4>/www:</h4>
+<br />
+<div>
+<%
+require("luci.fs")
+t=luci.fs.dir("/www")
+if type(t) ~= "table" then
+	luci.http.write(translate("<p>error occurred while reading directory '/www'</p>"))
+else
+	for i,v in ipairs(t) do
+		if (v ~= ".") and (v ~= "..") then
+			luci.http.write(string.format("<p><a href='/%s'>%s</a></p>",v,v))
+		end
+	end
+end
+%> 
+</div>
+<%+footer%>
