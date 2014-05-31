@@ -12,16 +12,9 @@ You may obtain a copy of the License at
 
 require("luci.sys")
 require("luci.util")
-require("luci.model.ipkg")
 
-local webui="yaaw"
 local uci = require "luci.model.uci".cursor()
-local running = (luci.sys.call("pidof aria2c > /dev/null") == 0)
-local webinstalled = luci.model.ipkg.installed(webui) 
-local button = ""
-if running and webinstalled then
-	button = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"button\" value=\" " .. translate("Open Web Interface") .. " \" onclick=\"window.open('http://'+window.location.hostname+'/" .. webui .. "')\"/>"
-end
+button = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' value=' " .. translate("Select an Aria2 Management Page") .. " ' onclick='window.open(\"" .. luci.dispatcher.build_url("admin", "wwwroot") .. "\")'/>"
 
 m = Map("aria2", translate("Aria2 Settings"), translate("Aria2 is a multi-protocol &amp; multi-source download utility, here you can configure the settings.") .. button)
 
