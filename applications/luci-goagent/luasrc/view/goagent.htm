@@ -18,17 +18,19 @@
 	};
 //]]></script>
 <br />
-<div>
+<div><p>
 <input class="cbi-button cbi-input-apply" type="button" value="<%:Enable%>" onclick="enable_disable('enable')" />
 <input class="cbi-button cbi-input-reset" type="button" value="<%:Disable%>" onclick="enable_disable('disable')" />
-</div>
+</p></div>
 <p>
 <% write(translate("This is the output of goagent. This screen refreshes itself every 5 seconds. You can disable the refreshing by clicking the <em>Auto Refresh on</em> button.")) %>
 <br />
 <% write(translate("You can also monitor the screen in a terminal using command <em>screen -x goagent</em>. Then press <em>Ctrl+a</em>, <em>Ctrl+d</em> to exit.")) %>
 </p>
+<p>
 <% write(translate("Please fill your user name in the <em>proxy.ini</em> file on <em>config</em> page, then press <em>Enable</em> button to start goagent.")) %> (<a href='<%=luci.dispatcher.build_url("admin", "services", "goagent", "config")%>'><%:config page%></a>). <%:The starting could take a minute, so wait patiently.%>
 </p>
+<p>
 <% write(translate("<a href='https://code.google.com/p/goagent/'>Go to goagent homepage</a> for further information.")) %>
 </p>
 <div>
