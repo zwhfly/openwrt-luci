@@ -1,7 +1,0 @@
-#!/bin/sh 
-
-[ -n "${IPKG_INSTROOT}" ] || {
-	chmod 755 /etc/init.d/goagent >/dev/null 2>&1
-
-	exit 0
-}
