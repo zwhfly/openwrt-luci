@@ -1,0 +1,9 @@
+#!/bin/sh
+#Author:zwhfly
+#Email:zwhfly@163.com
+
+t=$(tmux has -t mentohust 2>&1)
+if [ $? = 0 ]; then
+	/etc/init.d/mentohust restart
+fi
+

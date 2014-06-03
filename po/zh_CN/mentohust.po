@@ -1,9 +1,6 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
-msgid "mentohust"
-msgstr "校园网认证"
-
 msgid "0 means no limit,default to 8"
 msgstr "0表示无限制，默认8"
 
@@ -63,13 +60,13 @@ msgid "DHCP type"
 msgstr "DHCP方式"
 
 msgid "DNS"
-msgstr ""
+msgstr "DNS"
 
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 msgid "MentoHUST"
-msgstr ""
+msgstr "MentoHUST"
 
 msgid "Password"
 msgstr "密码"
@@ -166,3 +163,79 @@ msgstr "默认dhclient"
 
 msgid "wait on failure timeout(s)"
 msgstr "失败等待(秒)"
+
+msgid "Mentohust Running Status"
+msgstr "Mentohust 运行状态"
+
+msgid "Running Status"
+msgstr "运行状态"
+
+msgid "Ruijie/Saier Authentication"
+msgstr "锐捷赛尔认证"
+
+msgid "Config"
+msgstr "配置"
+
+msgid "A Ruijie and Cernet supplicant from HustMoon Studio. Homepage: <a href='http://code.google.com/p/mentohust/'>http://code.google.com/p/mentohust/</a>."
+msgstr "HustMoon Studio 编写的一个锐捷、赛尔认证工具。主页：<a href='http://code.google.com/p/mentohust/'>http://code.google.com/p/mentohust/</a>。"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Disable"
+msgstr "禁用"
+
+msgid "This is the output of mentohust. This screen refreshes itself every 5 seconds. You can disable the refreshing by clicking the <em>Auto Refresh on</em> button."
+msgstr "这是 mentohust 程序的输出内容。此屏幕每5秒钟自动刷新一次。你可以点击 <em>自动刷新 开</em> 按钮关闭自动刷新。"
+
+msgid "You can also monitor the screen in a terminal using command <em>tmux attach -t mentohust</em>. Then press <em>Ctrl+b</em>, <em>(noCtrl)d</em> to exit."
+msgstr "您还可以在终端中查看此屏幕，使用命令 <em>tmux attach -t mentohust</em> 。然后按 <em>Ctrl+b</em>，<em>(不按Ctrl)d</em> 退出。"
+
+msgid "Please make a right configuration on <em>config</em> page, then press <em>Enable</em> button to start mentohust."
+msgstr "请在 <em>配置</em> 页面上做出正确配置，然后按 <em>启用</em> 按钮启动 mentohust。"
+
+msgid "no running mentohust found"
+msgstr "没有找到运行中的 mentohust"
+
+msgid "Mentohust Config"
+msgstr "Mentohust 配置"
+
+msgid "use localhost's IP by default"
+msgstr "默认使用本机 IP"
+
+msgid "left blank to use default"
+msgstr "留空使用默认值"
+
+msgid "disabled by default"
+msgstr "默认关闭"
+
+msgid "Connection checking"
+msgstr "掉线检测"
+
+msgid "8s by default"
+msgstr "默认 8 秒"
+
+msgid "30s by default"
+msgstr "默认 30 秒"
+
+msgid "15s by default"
+msgstr "默认 15 秒"
+
+msgid "unlimited by default"
+msgstr "默认无限次"
+
+msgid "5 by default"
+msgstr "默认 5"
+
+msgid "0(no),1-20(yes)"
+msgstr "0（否），1~20（是）"
+
+msgid "not in use by default"
+msgstr "默认不使用"
+
+msgid "this value will be followed by the net card name to form the actual script"
+msgstr "网卡名将被附加在此值后面，作为最终脚本"
+
+msgid "'udhcpc -i' by default"
+msgstr "默认使用‘udhcpc -i’"
+

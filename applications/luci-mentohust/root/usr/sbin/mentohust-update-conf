@@ -1,0 +1,31 @@
+#!/bin/sh
+#Author:zwhfly
+#Email:zwhfly@163.com
+
+echo [MentoHUST] > /tmp/mentohust/tmp.conf
+echo Username=$(uci get mentohust.@mentohust[0].Username) >> /tmp/mentohust/tmp.conf
+echo Password=$(uci get mentohust.@mentohust[0].Password) >> /tmp/mentohust/tmp.conf
+echo Nic=$(uci get mentohust.@mentohust[0].Nic) >> /tmp/mentohust/tmp.conf
+echo IP=$(uci get mentohust.@mentohust[0].IP) >> /tmp/mentohust/tmp.conf
+echo Mask=$(uci get mentohust.@mentohust[0].Mask) >> /tmp/mentohust/tmp.conf
+echo Gateway=$(uci get mentohust.@mentohust[0].Gateway) >> /tmp/mentohust/tmp.conf
+echo DNS=$(uci get mentohust.@mentohust[0].DNS) >> /tmp/mentohust/tmp.conf
+echo PingHost=$(uci get mentohust.@mentohust[0].PingHost) >> /tmp/mentohust/tmp.conf
+echo Timeout=$(uci get mentohust.@mentohust[0].Timeout) >> /tmp/mentohust/tmp.conf
+echo EchoInterval=$(uci get mentohust.@mentohust[0].EchoInterval) >> /tmp/mentohust/tmp.conf
+echo RestartWait=$(uci get mentohust.@mentohust[0].RestartWait) >> /tmp/mentohust/tmp.conf
+echo MaxFail=$(uci get mentohust.@mentohust[0].MaxFail) >> /tmp/mentohust/tmp.conf
+echo StartMode=$(uci get mentohust.@mentohust[0].StartMode) >> /tmp/mentohust/tmp.conf
+echo DhcpMode=$(uci get mentohust.@mentohust[0].DhcpMode) >> /tmp/mentohust/tmp.conf
+#echo DaemonMode=$(uci get mentohust.@mentohust[0].DaemonMode) >> /tmp/mentohust/tmp.conf
+echo ShowNotify=$(uci get mentohust.@mentohust[0].ShowNotify) >> /tmp/mentohust/tmp.conf
+echo Version=$(uci get mentohust.@mentohust[0].Version) >> /tmp/mentohust/tmp.conf
+echo DataFile=$(uci get mentohust.@mentohust[0].DataFile) >> /tmp/mentohust/tmp.conf
+echo dhcpscript=$(uci get mentohust.@mentohust[0].dhcpscript) $(uci get mentohust.@mentohust[0].Nic) >> /tmp/mentohust/tmp.conf
+
+cmp -s /etc/mentohust.conf /tmp/mentohust/tmp.conf
+if [ $? != 0 ]; then
+	cp /tmp/mentohust/tmp.conf /etc/mentohust.conf
+fi
+rm -f /tmp/mentohust/tmp.conf
+
