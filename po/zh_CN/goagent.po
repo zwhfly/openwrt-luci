@@ -1,8 +1,14 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
-msgid "config"
+msgid "GoAgent Proxy"
+msgstr "GoAgent代理"
+
+msgid "Config"
 msgstr "配置"
+
+msgid "Running Status"
+msgstr "运行状态"
 
 msgid "no running goagent found"
 msgstr "没有找到运行中的goagent"
@@ -22,11 +28,17 @@ msgstr "请在 <em>配置</em> 页面上将您的用户名填入 <em>proxy.ini</
 msgid "<a href='https://code.google.com/p/goagent/'>Go to goagent homepage</a> for further information."
 msgstr "<a href='https://code.google.com/p/goagent/'>点击进入goagent主页</a> 获取更多信息。"
 
-msgid "goagent running status"
-msgstr "goagent运行状态"
+msgid "GoAgent Running Status"
+msgstr "GoAgent 运行状态"
+
+msgid "A proxy program based on GAE. Homepage: <a href='https://code.google.com/p/goagent/'>https://code.google.com/p/goagent/</a>."
+msgstr "一个基于 GAE 的代理程序。主页：<a href='https://code.google.com/p/goagent/'>https://code.google.com/p/goagent/</a>。"
 
 msgid "config page"
 msgstr "配置页面"
+
+msgid ". "
+msgstr "。"
 
 msgid "The starting could take a minute, so wait patiently."
 msgstr "启动可能会花一点时间，所以请耐心等待。"
@@ -39,3 +51,7 @@ msgstr "禁用"
 
 msgid "Generally ip=0.0.0.0 and appid=<em>your gae appid</em>."
 msgstr "一般地，ip=0.0.0.0，appid=<em>你的gae的appid</em>。"
+
+msgid "Enable/Disable button enables/disables boot-time starting too."
+msgstr "启用/禁用按钮也会启用/禁用开机启动。"
+

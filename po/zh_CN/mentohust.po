@@ -239,3 +239,6 @@ msgstr "网卡名将被附加在此值后面，作为最终脚本"
 msgid "'udhcpc -i' by default"
 msgstr "默认使用‘udhcpc -i’"
 
+msgid "Enable/Disable button enables/disables boot-time starting too."
+msgstr "启用/禁用按钮也会启用/禁用开机启动。"
+
