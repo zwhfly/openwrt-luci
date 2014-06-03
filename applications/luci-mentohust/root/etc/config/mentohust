@@ -1,4 +1,10 @@
-config 'option'
 
-config 'mentohust'
+config mentohust
+	option Nic 'eth0.2'
+	option StartMode '1'
+	option DhcpMode '1'
+	option DaemonMode '0'
+	option dhcpscript 'udhcpc -i'
+	option Username 'abc'
+	option Password '123'
 

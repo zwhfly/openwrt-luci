@@ -458,7 +458,8 @@ $(eval $(call application,watchcat,LuCI Support for Watchcat,\
 	+PACKAGE_luci-app-watchcat:watchcat))
 
 $(eval $(call application,mentohust,mentohust configuration module,\
-	 +PACKAGE_luci-app-mentohust:mentohust))
+	 +PACKAGE_luci-app-mentohust:mentohust \
+	 +PACKAGE_luci-app-mentohust:tmux))
 
 $(eval $(call application,goagent,goagent configuration module,\
 	 +PACKAGE_luci-app-goagent:screen))
