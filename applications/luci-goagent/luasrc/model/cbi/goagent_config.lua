@@ -2,7 +2,7 @@ require("luci.sys")
 
 local fs = require "nixio.fs"
 
-local f = SimpleForm("goagent", translate("config"), '<p>' .. translate("Edit <em>proxy.ini</em> of goagent here.") .. '</p>' .. '<p>' .. translate("Generally ip=0.0.0.0 and appid=<em>your gae appid</em>.") .. '</p>' .. '<p>' .. translate("<a href='https://code.google.com/p/goagent/'>Go to goagent homepage</a> for further information.") .. '</p>')
+local f = SimpleForm("goagent", translate("GoAgent Config"), '<p>' .. translate("Edit <em>proxy.ini</em> of goagent here.") .. '</p>' .. '<p>' .. translate("Generally ip=0.0.0.0 and appid=<em>your gae appid</em>.") .. '</p>' .. '<p>' .. translate("<a href='https://code.google.com/p/goagent/'>Go to goagent homepage</a> for further information.") .. '</p>')
 
 local o = f:field(TextValue, "config_file")
 o.rows = 21
