@@ -31,6 +31,9 @@ msgstr "<a href='https://code.google.com/p/goagent/'>点击进入goagent主页</
 msgid "GoAgent Running Status"
 msgstr "GoAgent 运行状态"
 
+msgid "GoAgent Config"
+msgstr "GoAgent 配置"
+
 msgid "A proxy program based on GAE. Homepage: <a href='https://code.google.com/p/goagent/'>https://code.google.com/p/goagent/</a>."
 msgstr "一个基于 GAE 的代理程序。主页：<a href='https://code.google.com/p/goagent/'>https://code.google.com/p/goagent/</a>。"
 
