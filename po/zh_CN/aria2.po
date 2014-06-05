@@ -1,5 +1,5 @@
 msgid "Aria2 Settings"
-msgstr "Aria2下载器配置"
+msgstr "Aria2下载配置"
 
 msgid "Aria2 is a multi-protocol &amp; multi-source download utility, here you can configure the settings."
 msgstr "Aria2是一个支持多协议多线程的下载器,你可以在这里对其进行配置."
