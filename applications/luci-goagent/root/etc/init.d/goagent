@@ -12,7 +12,7 @@ stop() {
 }
 
 start() {
-	if [ $(uci get goagent.goagent.enabled) != '1' ]; then
+	if [ '$(uci get goagent.goagent.enabled)' != '1' ]; then
 		stop
 		return 0
 	fi

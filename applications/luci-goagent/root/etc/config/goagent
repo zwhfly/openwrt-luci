@@ -1,0 +1,4 @@
+
+config goagent 'goagent'
+	option enabled '0'
+
