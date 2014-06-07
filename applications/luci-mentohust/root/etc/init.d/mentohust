@@ -5,22 +5,26 @@
 #Email:zwhfly@163.com
 
 START=55
-STOP=10
+STOP=45
 
 start()
 {
 	 # thanks to the tmux feature, if session name already exists, no new one would be created
-	t=$(tmux new -d -s mentohust-update-conf mentohust-update-conf 2>&1)
-	echo return 0
+	t=$(tmux new -d -s mentohust-update-conf mentohust-update-conf 2>&1) # due to an ugly bug of tmux
+	echo get 0
 	while [ $? = 0 ]; do
 		sleep 1
-		t=$(tmux has -t mentohust-update-conf 2>&1)
+		t=$(tmux has -t mentohust-update-conf 2>&1) # due to an ugly bug of tmux
 	done
-	t=$(tmux new -d -s mentohust -x 100 -y 25 mentohust 2>&1)
+	if [ $(uci get mentohust.mentohust.enabled) != '1' ]; then
+		stop
+		return 0
+	fi
+	t=$(tmux new -d -s mentohust -x 100 -y 25 mentohust 2>&1) # due to an ugly bug of tmux
 }
 
 stop()
 {
-	t=$(tmux kill-session -t mentohust 2>&1)
+	t=$(tmux kill-session -t mentohust 2>&1) # due to an ugly bug of tmux
 }
 

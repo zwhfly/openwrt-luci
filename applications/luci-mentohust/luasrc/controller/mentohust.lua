@@ -10,6 +10,8 @@ Email:zwhfly@163.com
 
 module("luci.controller.mentohust", package.seeall)
 
+require "luci.model.uci"
+
 function index()
 	local page 
 
@@ -25,7 +27,7 @@ function index()
 	page.i18n = "mentohust"
 	page.dependent = true
 
-	page = entry({"admin", "services", "mentohust", "screen"}, call("get_mentohust_screen"))
+	page = entry({"admin", "services", "mentohust", "screen"}, call("get_screen"))
 	page.i18n = "mentohust"
 	page.leaf = true
 
@@ -38,27 +40,36 @@ function index()
 	page.leaf = true
 end
 
-function get_mentohust_screen()
-	luci.http.prepare_content("application/json")
+function get_status()
+	local c = luci.model.uci.cursor()
+	local enabled = (c:get("mentohust", "mentohust", "enabled") == '1')
 
-	local status
-	status = luci.sys.exec("mentohust-get-status")
-	if status:find("^no running mentohust found") ~= nil then
-		luci.http.write_json(luci.i18n.translate("no running mentohust found"))
-		return
+	local screen = luci.sys.exec("mentohust-get-screen")
+	if screen:find("^no running mentohust found") ~= nil then
+		screen = luci.i18n.translate("no running mentohust found")
 	end
-	luci.http.write_json(status)
+
+	luci.http.prepare_content("application/json")
+	luci.http.write_json({enabled=enabled, screen=screen})
+end
+
+function get_screen()
+	get_status()
 end
 
 function enable_mentohust()
-	luci.sys.call("/etc/init.d/mentohust enable")
+	local c = luci.model.uci.cursor()
+	c.set("mentohust", "mentohust", "enabled", "1")
+	c.commit("mentohust")
 	luci.sys.call("/etc/init.d/mentohust start")
-	get_mentohust_screen()
+	get_status()
 end
 
 function disable_mentohust()
-	luci.sys.call("/etc/init.d/mentohust disable")
+	local c = luci.model.uci.cursor()
+	c.set("mentohust", "mentohust", "enabled", "0")
+	c.commit("mentohust")
 	luci.sys.call("/etc/init.d/mentohust stop")
-	get_mentohust_screen()
+	get_status()
 end
 
