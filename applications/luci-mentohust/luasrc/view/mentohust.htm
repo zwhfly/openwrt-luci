@@ -6,18 +6,34 @@ write(translate("A Ruijie and Cernet supplicant from HustMoon Studio. Homepage: 
 %>
 </div>
 <script type="text/javascript">//<![CDATA[
-	update_textarea = function(str)
+	update_status = function(status)
 	{
-		var ta = document.getElementById('mentohust_screen');
-		ta.value = str;
-		ta.scrollTop = ta.scrollHeight;
+		var enabled = status["enabled"];
+		var l_on = document.getElementById('label_enabled_on');
+		var l_off = document.getElementById('label_enabled_off');
+		if (enabled)
+		{
+			l_on.style.display = ''
+			l_off.style.display = 'none'
+		}
+		else
+		{
+			l_on.style.display = 'none'
+			l_off.style.display = ''
+		}
+
+		var screen = status["screen"];
+		var t = document.getElementById('textarea_screen');
+		t.value = screen;
+		t.scrollTop = t.scrollHeight;
 	};
+
 	enable_disable = function(action)
 	{
 		XHR.get('<%=luci.dispatcher.build_url("admin", "services", "mentohust")%>/' + action, null,
-			function(x, str)
+			function(x, json)
 			{
-				update_textarea(str);
+				update_status(json);
 			}
 		);
 	};
@@ -26,7 +42,9 @@ write(translate("A Ruijie and Cernet supplicant from HustMoon Studio. Homepage: 
 <div><p>
 <input class="cbi-button cbi-input-apply" type="button" value="<%:Enable%>" onclick="enable_disable('enable')" />
 <input class="cbi-button cbi-input-reset" type="button" value="<%:Disable%>" onclick="enable_disable('disable')" />
-<%:Enable/Disable button enables/disables boot-time starting too.%>
+<span>:</span>
+<span id="label_enabled_on" class="label notice" style="display:none">on</span>
+<span id="label_enabled_off" class="label" style="display:none">off</span>
 </p></div>
 <p>
 <% write(translate("This is the output of mentohust. This screen refreshes itself every 5 seconds. You can disable the refreshing by clicking the <em>Auto Refresh on</em> button.")) %>
@@ -37,13 +55,13 @@ write(translate("A Ruijie and Cernet supplicant from HustMoon Studio. Homepage: 
 <% write(translate("Please make a right configuration on <em>config</em> page, then press <em>Enable</em> button to start mentohust.")) %> (<a href='<%=luci.dispatcher.build_url("admin", "services", "mentohust", "config")%>'><%:config page%></a>).
 </p>
 <div>
-<textarea readonly="readonly" wrap="off" rows="25" style="width: 100%;" id="mentohust_screen"></textarea>
+<textarea id="textarea_screen" readonly="readonly" wrap="off" rows="25" style="width: 100%;"></textarea>
 </div>
 <script type="text/javascript">//<![CDATA[
 	XHR.poll(5, '<%=luci.dispatcher.build_url("admin", "services", "mentohust", "screen")%>', null,
-		function(x, str)
+		function(x, json)
 		{
-			update_textarea(str);
+			update_status(json);
 		}
 	);
 //]]></script>
