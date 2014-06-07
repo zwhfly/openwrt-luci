@@ -1,5 +1,7 @@
 module("luci.controller.goagent", package.seeall)
 
+require "luci.model.uci"
+
 function index()
 	local page 
 
@@ -15,7 +17,7 @@ function index()
 	page.i18n = "goagent"
 	page.dependent = true
 
-	page = entry({"admin", "services", "goagent", "screen"}, call("get_goagent_screen"))
+	page = entry({"admin", "services", "goagent", "screen"}, call("get_screen"))
 	page.i18n = "goagent"
 	page.leaf = true
 
@@ -28,27 +30,36 @@ function index()
 	page.leaf = true
 end
 
-function get_goagent_screen()
-	luci.http.prepare_content("application/json")
+function get_status()
+	local c = luci.model.uci.cursor()
+	local enabled = (c:get("goagent", "goagent", "enabled") == '1')
 
-	local status
-	status = luci.sys.exec("goagent-get-status")
-	if status:find("^no running goagent found") ~= nil then
-		luci.http.write_json(luci.i18n.translate("no running goagent found"))
-		return
+	local screen = luci.sys.exec("goagent-get-screen")
+	if screen:find("^no running goagent found") ~= nil then
+		screen = luci.i18n.translate("no running goagent found")
 	end
-	luci.http.write_json(status)
+
+	luci.http.prepare_content("application/json")
+	luci.http.write_json({enabled=enabled, screen=screen})
+end
+
+function get_screen()
+	get_status()
 end
 
 function enable_goagent()
-	luci.sys.call("/etc/init.d/goagent enable")
+	local c = luci.model.uci.cursor()
+	c.set("goagent", "goagent", "enabled", "1")
+	c.commit("goagent")
 	luci.sys.call("/etc/init.d/goagent start")
-	get_goagent_screen()
+	get_status()
 end
 
 function disable_goagent()
-	luci.sys.call("/etc/init.d/goagent disable")
+	local c = luci.model.uci.cursor()
+	c.set("goagent", "goagent", "enabled", "0")
+	c.commit("goagent")
 	luci.sys.call("/etc/init.d/goagent stop")
-	get_goagent_screen()
+	get_status()
 end
 

@@ -1,21 +1,25 @@
 #!/bin/sh /etc/rc.common
 # Copyright (C) 2006-2011 OpenWrt.org
 
-START=50
+START=80
+STOP=20
 
 stop() {
-	echo a > /dev/null 2> /dev/null
+	echo a > /dev/null 2>&1
 	while [ $? = 0 ]; do
-		screen -x -RR goagent -X quit > /dev/null 2> /dev/null
+		screen -x -RR goagent -X quit > /dev/null 2>&1
 	done 
 }
 
 start() {
-	screen -x goagent -X version > /dev/null 2> /dev/null
+	if [ $(uci get goagent.goagent.enabled) != '1' ]; then
+		stop
+		return 0
+	fi
+	screen -x goagent -X version > /dev/null 2>&1
 	if [ $? = 0 ]; then
 		return 0
-	else
-		stop
-		screen -dmS goagent python /usr/lib/goagent/local/proxy.py
 	fi
+	stop
+	screen -dmS goagent python /usr/lib/goagent/local/proxy.py
 }
