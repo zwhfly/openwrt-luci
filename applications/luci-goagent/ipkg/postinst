@@ -1,0 +1,7 @@
+#!/bin/sh
+
+chmod 755 /etc/init.d/goagent
+/etc/init.d/goagent enable
+rm -rf /tmp/luci-modulecache
+rm -rf /tmp/luci-indexcache
+

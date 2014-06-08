@@ -1,0 +1,5 @@
+#!/bin/sh
+
+/etc/init.d/goagent stop
+/etc/init.d/goagent disable
+
