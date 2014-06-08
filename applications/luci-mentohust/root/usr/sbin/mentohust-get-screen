@@ -3,17 +3,17 @@
 #Email:zwhfly@163.com
 
 mkdir -p /tmp/mentohust > /dev/null 2>&1
-rm /tmp/mentohust/screen > /dev/null 2>&1
+rm -f /tmp/mentohust/screen > /dev/null 2>&1
 t=$(tmux has -t mentohust 2>&1) # due to an ugly bug of tmux
 if [ $? = 0 ]; then
-        t=$(tmux capturep -S -1000 -t mentohust \; saveb -b 0 /tmp/mentohust/screen \; deleteb -b 0 2>&1) # due to an ugly bug of tmux
+        t=$(tmux capturep -S -500 -t mentohust \; saveb -b 0 /tmp/mentohust/screen \; deleteb -b 0 2>&1) # due to an ugly bug of tmux
 	cat /tmp/mentohust/screen
 else
         echo "no running mentohust found"
 	exit 1
 fi
 
-rm /tmp/mentohust/screen > /dev/null 2>&1
+rm -f /tmp/mentohust/screen > /dev/null 2>&1
 
 exit 0
 

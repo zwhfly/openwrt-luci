@@ -1,5 +1,6 @@
 
-config mentohust
+config mentohust 'mentohust'
+	option enabled '0'
 	option Nic 'eth0.2'
 	option StartMode '1'
 	option DhcpMode '1'
