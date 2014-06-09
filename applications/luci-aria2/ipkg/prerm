@@ -1,0 +1,6 @@
+#!/bin/sh
+
+/etc/init.d/aria2 stop
+/etc/init.d/aria2 disable
+/etc/init.d/aria2delaystarter disable
+
