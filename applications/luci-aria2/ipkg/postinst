@@ -2,6 +2,12 @@
 
 [ -n "${IPKG_INSTROOT}" ] || {
 chmod 755 /etc/init.d/aria2 >/dev/null 2>&1
+chmod 755 /etc/init.d/aria2delaystarter >/dev/null 2>&1
 /etc/init.d/aria2 enable
+/etc/init.d/aria2delaystarter enable
+
+rm -rf /tmp/luci-modulecache
+rm -rf /tmp/luci-indexcache
+
 exit 0
 }
