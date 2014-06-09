@@ -1,0 +1,8 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+
+start() {
+	sleep 10
+	/etc/init.d/aria2 start
+}

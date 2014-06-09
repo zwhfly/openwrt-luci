@@ -1,7 +1,7 @@
 #!/bin/sh /etc/rc.common
 # Copyright (C) 2014 nanpuyue <nanpuyue@gmail.com>
 
-START=99
+STOP=01
 SERVICE_WRITE_PID=1
 SERVICE_DAEMONIZE=1
 
@@ -58,6 +58,11 @@ start_instance() {
 
 	SERVICE_UID="$user" \
 	service_start /usr/bin/aria2c --conf-path="$config_file"
+}
+
+enabled() {
+	# always enabled, by aria2delaystarter
+	return 0
 }
 
 start() {
